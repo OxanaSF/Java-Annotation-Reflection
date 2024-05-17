@@ -1,0 +1,48 @@
+-------------------------TESTING VALID ADDRESSES-------------------------
+Two addresses should print:
+50 Phelan Ave	Ocean Campus	San Francisco, CA 94112
+50 Phelan Ave	San Francisco, CA 94112
+
+-------------------------TESTING INVALID ADDRESSES-------------------------
+
+Bad address because too long state: [50 Phelan Ave, Ocean Campus, San Francisco, California, 94112]
+Expected: IllegalArgumentException that describes why the address is not valid.
+  Actual: IllegalArgumentException: Invalid address value [state="California"]; state must be exactly 2 characters.
+Expected value of the Address object: null
+  Actual value of the Address object: null
+
+Bad address because no state: [50 Phelan Ave, Ocean Campus, San Francisco, , 94112]
+Expected: IllegalArgumentException that describes why the address is not valid.
+  Actual: IllegalArgumentException: Invalid address value [state=""]; state must be exactly 2 characters.
+Expected value of the Address object: null
+  Actual value of the Address object: null
+
+Bad address because no street 1: [, , San Francisco, CA, 94112]
+Expected: IllegalArgumentException that describes why the address is not valid.
+  Actual: IllegalArgumentException: Invalid address value [street=""]; street must be 1 or more characters.
+Expected value of the Address object: null
+  Actual value of the Address object: null
+
+Bad address because no city: [50 Phelan Ave, Ocean Campus, , , 94112]
+Expected: IllegalArgumentException that describes why the address is not valid.
+  Actual: IllegalArgumentException: Invalid address value [city=""]; city must be 1 or more characters.
+Expected value of the Address object: null
+  Actual value of the Address object: null
+
+Bad address because too long city: [50 Phelan Ave, Ocean Campus, Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch, , 94112]
+Expected: IllegalArgumentException that describes why the address is not valid.
+  Actual: IllegalArgumentException: Invalid address value [city="Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch"]; city can have a maximum of 40 characters.
+Expected value of the Address object: null
+  Actual value of the Address object: null
+
+Bad address because too short zip: [50 Phelan Ave, , San Francisco, CA, 9411]
+Expected: IllegalArgumentException that describes why the address is not valid.
+  Actual: IllegalArgumentException: Invalid address value [zip="9411"]; zip must be exactly 5 characters.
+Expected value of the Address object: null
+  Actual value of the Address object: null
+
+Bad address because too long zip: [50 Phelan Ave, , San Francisco, CA, 941121]
+Expected: IllegalArgumentException that describes why the address is not valid.
+  Actual: IllegalArgumentException: Invalid address value [zip="941121"]; zip must be exactly 5 characters.
+Expected value of the Address object: null
+  Actual value of the Address object: null
